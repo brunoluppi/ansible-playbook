@@ -1,0 +1,11 @@
+- hosts: ssh_windows
+  gather_facts: no
+  tasks:
+    - name: Stop WMI
+      win_shell: |
+        Stop-Service -Name Winmgmt -Force
+      register: result_get_host
+
+    - name: display result_get_host
+      debug:
+        var: result_get_host
