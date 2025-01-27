@@ -1,0 +1,6 @@
+---
+- name: Teste básico de conexão Windows
+  hosts: ssh_windows
+  tasks:
+    - name: Verificar usuário atual
+      win_shell: whoami
