@@ -1,6 +1,11 @@
----
-- name: Teste básico de conexão Windows
-  hosts: ssh_windows
+- hosts: ssh_windows
+  gather_facts: no
   tasks:
-    - name: Verificar usuário atual
-      win_shell: whoami
+    - name: test powershell
+      win_shell: |
+        whoami
+      register: result_get_host
+
+    - name: display result_get_host
+      debug:
+        var: result_get_host
