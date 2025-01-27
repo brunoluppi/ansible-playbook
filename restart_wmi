@@ -1,0 +1,8 @@
+---
+- name: Reiniciar o Instrumentador do Windows
+  hosts: windows
+  tasks:
+    - name: Reiniciar o serviço Winmgmt
+      win_service:
+        name: Winmgmt
+        state: restarted
