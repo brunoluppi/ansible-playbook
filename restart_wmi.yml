@@ -1,6 +1,6 @@
 ---
 - name: Reiniciar o Instrumentador do Windows
-  hosts: windows
+  hosts: ssh_windows
   tasks:
     - name: Reiniciar o serviço Winmgmt
       win_service:
