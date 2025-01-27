@@ -1,7 +1,11 @@
-- name: Reiniciar o Instrumentador do Windows
-  hosts: ssh_windows
+- hosts: ssh_windows
+  gather_facts: no
   tasks:
-    - name: Reiniciar o serviço Winmgmt
+    - name: Restart WMI
       win_shell: |
-        chcp 65001
         Restart-Service -Name Winmgmt -Force
+      register: result_get_host
+
+    - name: display result_get_host
+      debug:
+        var: result_get_host
